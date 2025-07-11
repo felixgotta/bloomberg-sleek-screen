@@ -20,6 +20,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
+				'anton': ['Anton', 'sans-serif'],
 				'inter': ['Inter', 'sans-serif'],
 			},
 			colors: {
