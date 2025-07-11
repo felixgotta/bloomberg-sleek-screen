@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const Index = () => {
   const words = ['FELIX', 'BLOMBERG', 'COMING', 'SOON'];
@@ -12,23 +12,22 @@ const Index = () => {
     'bottom-8 right-8' // bottom-right
   ];
 
-  const shufflePositions = () => {
-    const newPositions = [...positions];
-    // Fisher-Yates shuffle algorithm
-    for (let i = newPositions.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [newPositions[i], newPositions[j]] = [newPositions[j], newPositions[i]];
-    }
-    setPositions(newPositions);
-  };
+  const shufflePositions = useCallback(() => {
+    setPositions(current => {
+      const newPositions = [...current];
+      // Fisher-Yates shuffle algorithm
+      for (let i = newPositions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newPositions[i], newPositions[j]] = [newPositions[j], newPositions[i]];
+      }
+      return newPositions;
+    });
+  }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      shufflePositions();
-    }, 2500); // Reduced from 5000ms to 2500ms
-
+    const interval = setInterval(shufflePositions, 2500);
     return () => clearInterval(interval);
-  }, [positions]);
+  }, [shufflePositions]);
 
   return (
     <div className="min-h-screen w-full relative overflow-hidden bg-black">
