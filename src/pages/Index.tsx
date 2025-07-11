@@ -35,7 +35,7 @@ const Index = () => {
       {words.map((word, index) => (
         <div
           key={word}
-          className={`absolute text-white font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight transition-all duration-1000 ease-in-out ${corners[positions[index]]}`}
+          className={`absolute text-white font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight transition-all duration-1000 ease-in-out ${corners[positions[index]]}`}
         >
           {word}
         </div>
