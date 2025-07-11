@@ -25,7 +25,7 @@ const Index = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       shufflePositions();
-    }, 5000); // Every 5 seconds
+    }, 2500); // Reduced from 5000ms to 2500ms
 
     return () => clearInterval(interval);
   }, [positions]);
@@ -35,7 +35,7 @@ const Index = () => {
       {words.map((word, index) => (
         <div
           key={word}
-          className={`absolute text-white font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight transition-all duration-1000 ease-in-out ${corners[positions[index]]}`}
+          className={`absolute text-white font-bold text-6xl md:text-8xl lg:text-9xl tracking-tight transition-all duration-1000 ease-in-out ${corners[positions[index]]}`}
         >
           {word}
         </div>
