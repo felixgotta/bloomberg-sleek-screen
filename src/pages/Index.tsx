@@ -26,7 +26,7 @@ const Index = () => {
         </h1>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .shimmer-text {
           background: linear-gradient(
             90deg,
