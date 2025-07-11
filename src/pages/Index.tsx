@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 const Index = () => {
   const words = ['FELIX', 'BLOMBERG', 'COMING', 'SOON'];
   const [positions, setPositions] = useState([0, 1, 2, 3]); // indices for corners
+  const [isShuffling, setIsShuffling] = useState(false);
 
   const corners = [
     'top-8 left-8', // top-left
@@ -13,13 +14,23 @@ const Index = () => {
   ];
 
   const shufflePositions = () => {
-    const newPositions = [...positions];
-    // Fisher-Yates shuffle algorithm
-    for (let i = newPositions.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [newPositions[i], newPositions[j]] = [newPositions[j], newPositions[i]];
-    }
-    setPositions(newPositions);
+    setIsShuffling(true);
+    
+    // Add delay to create dragging effect
+    setTimeout(() => {
+      const newPositions = [...positions];
+      // Fisher-Yates shuffle algorithm
+      for (let i = newPositions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newPositions[i], newPositions[j]] = [newPositions[j], newPositions[i]];
+      }
+      setPositions(newPositions);
+      
+      // Reset shuffling state after animation completes
+      setTimeout(() => {
+        setIsShuffling(false);
+      }, 800);
+    }, 200);
   };
 
   useEffect(() => {
@@ -35,7 +46,14 @@ const Index = () => {
       {words.map((word, index) => (
         <div
           key={word}
-          className={`absolute text-white font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight transition-all duration-1000 ease-in-out ${corners[positions[index]]}`}
+          className={`absolute text-white font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight transition-all ease-out ${
+            isShuffling 
+              ? 'duration-[800ms] transform scale-110 opacity-80' 
+              : 'duration-1000 transform scale-100 opacity-100'
+          } ${corners[positions[index]]}`}
+          style={{
+            transform: isShuffling ? 'scale(1.1) rotate(2deg)' : 'scale(1) rotate(0deg)',
+          }}
         >
           {word}
         </div>
