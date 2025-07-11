@@ -10,7 +10,7 @@ const Index = () => {
     }`}>
       <div className="text-center select-none">
         <h1 
-          className={`font-anton text-[8vw] sm:text-[9vw] md:text-[10vw] lg:text-[11vw] xl:text-[12vw] font-normal tracking-wider leading-[0.8] transition-colors duration-300 cursor-default ${
+          className={`font-anton text-[8vw] sm:text-[9vw] md:text-[10vw] lg:text-[11vw] xl:text-[12vw] font-normal tracking-tighter leading-[0.8] transition-colors duration-300 cursor-default ${
             isHovered ? 'text-black' : 'text-white'
           }`}
           onMouseEnter={() => setIsHovered(true)}
