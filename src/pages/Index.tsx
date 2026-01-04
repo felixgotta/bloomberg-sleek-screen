@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
 const Index = () => {
-  const words = ['FELIX', 'BLOMBERG', 'COMING', 'SOON'];
+  const words = ['FELIX', 'BLOMBERG', 'DOT', 'COM'];
   const [positions, setPositions] = useState([0, 1, 2, 3]); // indices for corners
 
   const corners = [
@@ -32,12 +32,15 @@ const Index = () => {
   return (
     <div className="min-h-screen w-full relative overflow-hidden bg-black">
       {words.map((word, index) => (
-        <div
+        <a
           key={word}
-          className={`absolute text-white font-bold text-6xl md:text-8xl lg:text-9xl tracking-tight transition-all duration-1000 ease-in-out ${corners[positions[index]]}`}
+          href="https://www.instagram.com/felixblomberg/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`absolute text-white font-bold text-6xl md:text-8xl lg:text-9xl tracking-tight transition-all duration-1000 ease-in-out cursor-pointer hover:opacity-80 ${corners[positions[index]]}`}
         >
           {word}
-        </div>
+        </a>
       ))}
     </div>
   );
