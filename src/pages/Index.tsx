@@ -14,7 +14,7 @@ const Index = () => {
   ];
 
   const getRandomColor = () => {
-    const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E9', '#F8B500', '#FF69B4'];
+    const colors = ['#FF1493', '#00FFFF', '#39FF14', '#FFFF00', '#FF4500', '#FF00FF', '#00FF00', '#FF6600', '#FF073A', '#0FF0FC', '#CCFF00', '#FE01B1'];
     return colors[Math.floor(Math.random() * colors.length)];
   };
 
@@ -55,7 +55,7 @@ const Index = () => {
           href="https://www.instagram.com/felixblomberg/"
           target="_blank"
           rel="noopener noreferrer"
-          className={`absolute font-bold text-6xl md:text-8xl lg:text-9xl tracking-tight transition-all duration-1000 ease-in-out cursor-pointer ${corners[positions[index]]}`}
+          className={`absolute font-bold text-6xl md:text-8xl lg:text-9xl tracking-tight transition-[top,right,bottom,left] duration-1000 ease-in-out cursor-pointer ${corners[positions[index]]}`}
           style={{ color: hoverColors[word] || 'white' }}
           onMouseEnter={() => handleMouseEnter(word)}
           onMouseLeave={() => handleMouseLeave(word)}
