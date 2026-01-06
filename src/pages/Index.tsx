@@ -14,14 +14,8 @@ const Index = () => {
   ];
 
   const getRandomColor = () => {
-    const primaryColors = ['#FFA56C', '#00FF9E', '#FF5C8D'];
-    const rareColors = ['#FF3FA0', '#00FFD7', '#C74AFF', '#FFF73A', '#FF823C', '#FF8EFF'];
-    
-    // 75% chance for primary colors, 25% chance for rare colors
-    if (Math.random() < 0.75) {
-      return primaryColors[Math.floor(Math.random() * primaryColors.length)];
-    }
-    return rareColors[Math.floor(Math.random() * rareColors.length)];
+    const colors = ['#FF1493', '#00FFFF', '#39FF14', '#FFFF00', '#FF4500', '#FF00FF', '#00FF00', '#FF6600', '#FF073A', '#0FF0FC', '#CCFF00', '#FE01B1'];
+    return colors[Math.floor(Math.random() * colors.length)];
   };
 
   const handleMouseEnter = (word: string) => {
